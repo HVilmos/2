@@ -1,0 +1,23 @@
+<form (ngSubmit)="add()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Név</label>
+      <input type="text" class="form-control" id="title" name="title" [(ngModel)]="formData.title">
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Ár</label>
+      <input type="number" class="form-control" id="price" name="price" [(ngModel)]="formData.price">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <div class="container" *ngFor="let data of datas">
+    <input type="text" [(ngModel)]="data.title">
+    <input type="text" [(ngModel)]="data.price">
+    <button type="button" (click)="delete(data)" class="btn btn-danger">TÖrlés</button>
+    <button type="button" (click)="update(data)" class="btn btn-success">Módosít</button>
+    <input type="number" [(ngModel)]="data.db" value="1" min="1">
+    <button type="button" (click)="addToOrder(data)" class="btn btn-primary">Hozzáad</button>
+
+  </div>
+
+  <app-orders></app-orders>

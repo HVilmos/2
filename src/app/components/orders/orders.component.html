@@ -1,0 +1,19 @@
+<div class="container">
+    <form (ngSubmit)="order()">
+        <div class="mb-3">
+          <label for="title" class="form-label">Név</label>
+          <input type="text" class="form-control" id="title" name="title" [(ngModel)]="name">
+        </div>
+        <div class="mb-3">
+          <label for="cim" class="form-label">Cím</label>
+          <input type="text" class="form-control" id="cim" name="cim" [(ngModel)]="place">
+        </div>
+    </form>
+    <div *ngFor="let order of orders">
+        {{order.title}}
+        {{order.price}}
+        {{order.db}}
+        <button type="button" class="btn btn-danger" (click)="delete(order)">Törlés</button>
+    </div>
+    <button type="button" (click)="order()">Küldés</button>
+</div>
